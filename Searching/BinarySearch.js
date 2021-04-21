@@ -1,17 +1,25 @@
 // O(log(n)) time | O(1) space
 const binarySearch = (array, target) => {
+  // define left and right pointers
   let left = 0
   let right = array.length - 1
 
   while (left <= right) {
-    // diffine mid point
+    // the middle point of the array
+    // example: if lenght of the array was 9,
+    // let = 0, right = 9 -1
+    // middle point of this array is 0 + 8 / 2
+    // middle = 8 / 2 => 4
+    // the middle index is 4
+
     const middle = Math.floor((left + right) / 2)
     const potentialMatch = array[middle]
 
-    if (potentialMatch === target) return middle
+    if (target === potentialMatch) return middle
     else if (target < potentialMatch) right = middle - 1
     else left = middle + 1
   }
+
   // not found
   return -1
 }
