@@ -6,9 +6,14 @@ First Solution
 Time = O(n^2)
 Space = O(1)
 =================================================================================*/
-const twoNumberSum = (array, targetSum) => {
-  // travers the array untill before last element
+const twoNumberSum = (array = [], targetSum) => {
+  // make sure targetSum is provided
+  if (targetSum == undefined) {
+    throw new Error('Please provide targetSum argument')
+  }
+
   const len = array.length
+
   for (let i = 0; i < len - 1; i++) {
     const current = array[i]
     for (let j = i + 1; j < len; j++) {
@@ -19,6 +24,7 @@ const twoNumberSum = (array, targetSum) => {
     }
   }
 
+  // not found
   return []
 }
 
@@ -29,7 +35,11 @@ Second Solution - Using Hash Tables
 Time = O(n)
 Space = O(n)
 =================================================================================*/
-const twoNumberSum2 = (array, targetSum) => {
+const twoNumberSum2 = (array = [], targetSum) => {
+  // make sure targetSum is provided
+  if (targetSum == undefined) {
+    throw new Error('Please provide targetSum argument')
+  }
   //  create a hash table
   const nums = {}
   for (let i = 0; i < array.length; i++) {
@@ -52,7 +62,11 @@ Second Solution - Sorting the array
 Time = O(nlog(n))
 Space = O(1)
 =================================================================================*/
-const twoNumberSum3 = (array, targetSum) => {
+const twoNumberSum3 = (array = [], targetSum) => {
+  // make sure targetSum is provided
+  if (targetSum == undefined) {
+    throw new Error('Please provide targetSum argument')
+  }
   // sort the array
   array.sort((a, b) => a - b)
 
