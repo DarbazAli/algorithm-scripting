@@ -56,24 +56,22 @@ const twoNumberSum3 = (array, targetSum) => {
   // sort the array
   array.sort((a, b) => a - b)
 
-  // [1, 2, 3, 4, 5, 6]
-  //  ^              ^
-  //  left           right
-
+  // define left and right pointers
   let left = 0
   let right = array.length - 1
 
   while (left < right) {
-    let currentSum = array[left] + array[right]
+    const currentSum = array[left] + array[right]
+
     if (currentSum === targetSum) {
       return [array[left], array[right]]
     } else if (currentSum < targetSum) {
-      left += 1
-    } else if (currentSum > targetSum) {
-      right -= 1
+      left++
+    } else {
+      right--
     }
   }
-
+  // not found
   return []
 }
 
