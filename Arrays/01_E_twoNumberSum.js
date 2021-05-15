@@ -30,24 +30,22 @@ Time = O(n)
 Space = O(n)
 =================================================================================*/
 const twoNumberSum2 = (array, targetSum) => {
+  //  create a hash table
   const nums = {}
+  for (let i = 0; i < array.length; i++) {
+    const current = array[i]
+    const next = targetSum - current
 
-  for (let num of array) {
-    //   target sum = 10 eg.
-    //   current number = x
-    //   x + y = 10
-    //   y = 10 - x
-
-    const potentialMatch = targetSum - num
-    if (nums[potentialMatch]) {
-      return [potentialMatch, num]
+    if (nums[next]) {
+      return [current, next]
     } else {
-      nums[num] = true
+      nums[current] = true
     }
   }
-
+  // not found
   return []
 }
+console.log(twoNumberSum2([3, 5, -4, 8, 11, 1, -1, 6], 10))
 
 /*================================================================================
 Second Solution - Sorting the array
@@ -79,5 +77,4 @@ const twoNumberSum3 = (array, targetSum) => {
   return []
 }
 
-console.log(twoNumberSum2([3, 5, -4, 8, 11, 1, -1, 6], 10))
 console.log(twoNumberSum3([3, 5, -4, 8, 11, 1, -1, 6], 10))
